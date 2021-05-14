@@ -64,3 +64,8 @@ main {
 .task p {
     margin: 0 1vw;
 }
+
+.closebtn {
+    cursor: pointer;
+    margin-right: 1vw;
+}
