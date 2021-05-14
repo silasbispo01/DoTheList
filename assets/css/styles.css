@@ -15,9 +15,10 @@ body {
     overflow-x: hidden;
 }
 
-#grampo {
+.grampo {
     position: absolute;
     right: 50%;
+    transform: translateX(50%);
     top: 40px;
 }
 
@@ -31,10 +32,6 @@ body {
     
 }
 
-.container {
-    
-}
-
 nav {
     display: flex;
     border-bottom: 10px solid rgba( 180, 180, 180, 0.5);
@@ -44,7 +41,7 @@ nav {
 }
 
 
-#toDoList {
+.toDoList {
     width: 200px;
     height: 70px;
     color: #FFFFFF;
@@ -56,7 +53,7 @@ nav {
     text-decoration: none;
 }
 
-#avatar {
+.avatar {
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -79,7 +76,7 @@ main {
 }
 
 
-.tasks-list li {
+.task-list li {
     list-style: none;
     margin-bottom: 32px;
     width: 750px;
@@ -87,9 +84,12 @@ main {
     background: #E0E0E0;
     padding: 5px 20px 9px 20px;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
-.tasks-list a {
+.task-list a {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -97,7 +97,7 @@ main {
     
 }
 
-.tasks-list p {
+.task-list p {
     
     color: #3C2D2D;
     font-family: 'Open Sans' ;
@@ -106,7 +106,7 @@ main {
     
 }
 
-.tasks-list button {
+.task-list button {
     border: none;
     background: 0;
     font-size: 20px;
@@ -126,10 +126,11 @@ footer div {
     padding: 20px;
 }
 
-#adicionar {
+.adicionar {
     margin-left: auto;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     background-color: #C4C4C4;
+    cursor: pointer;
 }
