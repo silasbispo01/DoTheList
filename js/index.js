@@ -15,9 +15,15 @@ function adicionarTarefa(){
     p.innerText = "teste";
     var i = document.createElement("i");
     i.className = "fas fa-times closebtn";
+    i.addEventListener("click", excluir)
 
     task.appendChild(div);
     task.appendChild(p);
     task.appendChild(i);
-    tarefas.appendChild(task)
+    tarefas.appendChild(task);
+}
+
+function excluir(e) {
+    let target = e.target;
+    target.parentNode.remove()
 }
