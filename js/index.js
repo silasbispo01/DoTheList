@@ -5,10 +5,14 @@ const abreModal = document.querySelector("[data-open-modal]");
 const tarefas = document.querySelector("[data-tasks]");
 
 const btnCloseModal = document.querySelector("[data-close-modal]");
+const btnCancelar = document.querySelector("[data-cancelar-task]")
 
 
-
-
+btnCancelar.addEventListener("click", (e) => {
+    // Pega a div mãe (modal-container) da div mãe (modal) da div mãe (modal-header) do botão
+    let parent = e.target.parentNode.parentNode.parentNode;
+    parent.classList.add("hidden");
+});
 
 abreModal.addEventListener("click", mostraModal);
 
