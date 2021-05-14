@@ -47,12 +47,14 @@ main {
     background-color: lightgreen;
     border: solid 1px green;
     padding: 5px;
+    cursor: pointer;
 }
 
 .tasks {
     display: flex;
     position: relative;
     list-style-type: none;
+    flex-direction: column;
 }
 
 .check{
