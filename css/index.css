@@ -40,7 +40,8 @@ main {
 
 .addtaskbtn {
     position: absolute;
-    top: 1vw;
+    top: 50%;
+    transform: translateY(-50%);
     left: 1vw;
     height: 2em;
     background-color: lightgreen;
