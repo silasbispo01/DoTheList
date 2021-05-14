@@ -1,57 +1,69 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do The List</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/modalindex.css">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-    <header>
+    <img src="./assets/img/GRAMPO.svg" alt="" id="grampo">
+    <div class="prancheta">
+        <div class="container">
+            <nav>
+                <a href="#" id="toDoList">To Do List</a>
+                <a href="" id="avatar"></a>
+            </nav>
+            <main>
+                <section class="tasks">
+                    <ul class="tasks-list">
+                        <li><a href="">
+                            <p>Ir à academia</p>
+                            <button id="tasks button-remove"><img src="./assets/img/buttonX.svg" alt="botão remover"></button></a></li>
+                        <li><a href="">
+                            <p>Fazer uma festa</p>
+                            <button id="tasks button-remove"><img src="./assets/img/buttonX.svg" alt=""></button></a></li>
+                        <li><a href="">
+                            <p>Remover coco de cachorro</p>
+                            <button id="tasks button-remove"><img src="./assets/img/buttonX.svg" alt=""></button></a></li>
+                        <li><a href="">
+                            <p>Jogar video-game</p>
+                            <button id="tasks button-remove"><img src="./assets/img/buttonX.svg" alt=""></button></a></li>
+                        <li><a href="">
+                            <p>Fazer faxina</p>
+                            <button id="tasks button-remove"><img src="./assets/img/buttonX.svg" alt=""></button></a></li>
+                    </ul>
+                </section>
+                <div class="module">
+                    <div class="module-buttons">
+                        <a href="" id="edit"></a>
+                        <a href="" id="close"></a>
+                    </div>
+                    <div class="module task-name">
+                        <a href=""><p>Ir à academia</p></a>
+                    </div>
+                    <div class="module description">
+                        <div class="module description-form"></div>
+                        <div class="module comfirm-buttons">
+                            <a href="" id="cancel"></a>
+                            <a href="" id="comfirm"></a>
 
-    </header>
-    <main>
-        <div class="page">
-            <div class="pageheader">
-                <input class="openmodalbtn" type="button" value="Adicionar tarefa" data-open-modal>
-                <h1>To Do</h1>
-            </div>
-            <hr>
-            <ul class="tasks" data-tasks>
-                <li class="task">
-                    <div class="check"></div>
-                    <p>Ir à academia.</p>
-                    <i class="fas fa-times closebtn"></i>
-                </li>
-            </ul>
-        </div>
-        
-    </main>
-    <footer>
 
-    </footer>
-    
-</body>
-<div class="modal-container hidden" data-modal-container>
-    <div class="modal">
-        <div class="modal-header">
-            <h2>Adicionar Tarefa</h2>
-            <i class="fas fa-times closebtn modal-close-btn" data-close-modal></i>
-        </div>
-        <div class="modal-main">
-            <p>Título</p>
-            <input type="text" name="" id="">
-            <p>Descrição</p>
-            <input type="text" name="" id="">
-        </div>
-        <div class="modal-footer">
-            <input class="canceltaskbtn" type="button" value="Cancelar" data-cancelar-task>
-            <input class="addtaskbtn" type="button" value="Adicionar tarefa" data-addtaskbtn>
+                        </div>
+                    </div>
+
+
+                </div>
+            </main>
+            <footer>
+                <div>
+                    <a href="#" id="adicionar"></a>
+                </div>
+            </footer>
         </div>
     </div>
-</div>
-<script src="js/index.js"></script>
+
+    
+</body>
 </html>

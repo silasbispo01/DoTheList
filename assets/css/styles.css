@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Ranga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ranga&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E5E5E5;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+#grampo {
+    position: absolute;
+    right: 50%;
+    top: 40px;
+}
+
+.prancheta {
+    
+    margin: 90px 70px 70px 70px;
+    background-image: url(/assets/img/backgound.svg);
+    background-size: cover;
+    
+    border-radius: 10px;
+    
+}
+
+.container {
+    
+}
+
+nav {
+    display: flex;
+    border-bottom: 10px solid rgba( 180, 180, 180, 0.5);
+    height: 110px;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+
+#toDoList {
+    width: 200px;
+    height: 70px;
+    color: #FFFFFF;
+    font-size: 50px;
+    font-family: 'Ranga';
+    text-align: center;
+    background: #7E5E53;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+#avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+
+
+}
+
+
+main {
+    display: flex;
+    justify-content: space-between;
+    margin: 130px 160px 0 60px;
+    
+}
+
+.tasks {
+    width: 750px;
+    margin-right: 50px;
+}
+
+
+.tasks-list li {
+    list-style: none;
+    margin-bottom: 32px;
+    width: 750px;
+    height: 45px;
+    background: #E0E0E0;
+    padding: 5px 20px 9px 20px;
+    border-radius: 10px;
+}
+
+.tasks-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    
+}
+
+.tasks-list p {
+    
+    color: #3C2D2D;
+    font-family: 'Open Sans' ;
+    font-weight: bold;
+    font-size: 24px;
+    
+}
+
+.tasks-list button {
+    border: none;
+    background: 0;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.module {
+    height: 512px;
+    width: 380px;
+    background: #C4C4C4;
+}
+
+footer div {
+    height: 120px;
+    align-items: center;
+    display: flex;
+    padding: 20px;
+}
+
+#adicionar {
+    margin-left: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+}
