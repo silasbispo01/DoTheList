@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    padding: 0;
 }
 body {
     background-color: #A47551;
@@ -11,6 +12,7 @@ body {
 }
 
 header{
+    position: relative;
     background-color: grey;
     width: 25vw;
     height: 10vh;
@@ -19,7 +21,46 @@ header{
 }
 
 main {
+    position: relative;
     background-color: #E4D4C8;
     width: 90vw;
     height: 90vh;
+}
+
+.page {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+}
+
+.tasks {
+    display: flex;
+    position: relative;
+    list-style-type: none;
+}
+
+.check{
+    position: relative;
+    height: 90%;
+    width: 3vw;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task {
+    display: flex;
+    width: 95%;
+    height: 5vh;
+    margin: 2vh auto;
+    padding: 1vh 1vw;
+    background-color: #D0B49F;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task p {
+    margin: 0 1vw;
 }
