@@ -1,10 +1,31 @@
 "use strict"
 
 const adicionaTarefa = document.querySelector("[data-addtaskbtn]");
+const abreModal = document.querySelector("[data-open-modal]");
 const tarefas = document.querySelector("[data-tasks]");
+
+const btnCloseModal = document.querySelector("[data-close-modal]");
+
+
+
+
+
+abreModal.addEventListener("click", mostraModal);
+
+btnCloseModal.addEventListener("click", (e) => {
+    // Pega a div mãe (modal-container) da div mãe (modal) da div mãe (modal-header) do botão
+    let parent = e.target.parentNode.parentNode.parentNode;
+    parent.classList.add("hidden");
+});
+
 
 adicionaTarefa.addEventListener("click", adicionarTarefa);
 
+
+function mostraModal(){
+    const modal = document.querySelector("[data-modal-container]");
+    modal.classList.remove("hidden");
+}
 
 function adicionarTarefa(){
     var task = document.createElement("li");
