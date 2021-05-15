@@ -196,7 +196,7 @@ main {
     
 }
 
-.comfirm-buttons {
+.confirm-buttons {
     display: flex;
     justify-content: center;
     margin-top: 15px;
@@ -223,7 +223,7 @@ main {
     
 }
 
-#comfirm {
+#confirm {
     background-color: #69C759;
 
 }
