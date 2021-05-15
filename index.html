@@ -56,23 +56,28 @@
         </div>
     </div>
 
-    <div class="modal-container hidden" data-modal-container>
+    <div class="modal-container" data-modal-container>
         <div class="modal">
-            <div class="modal-header">
-                <h2>Adicionar Tarefa</h2>
-                <button class="modal-close-btn">
-                    <img src="./assets/img/buttonX.svg" alt="botão remover">
+            <div class="modal-buttons">
+                <button>
+                    <img src="./assets/img/buttonX.svg" alt="botão sair">
                 </button>
             </div>
-            <div class="modal-main">
-                <p>Título</p>
-                <input type="text" class="modal-titulo">
-                <p>Descrição</p>
-                <input type="text" class="modal-descricao">
+            <div class="modal-title">
+                <h1>Adicionar Tarefa</h1>
             </div>
-            <div class="modal-footer">
-                <button>Salvar</button>
-            </div>
+            <form action="submit" class="modal-form">
+
+                <label for="modal-name">Nome</label>
+                <input type="text" id="modal-name">
+
+                <label for="modal-description">Descrição</label>
+                <textarea name="" id="modal-description" cols="30" rows="10"></textarea>
+                    
+                <div class="modal-confirm">
+                    <button>Salvar</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>

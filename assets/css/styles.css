@@ -42,7 +42,7 @@ body {
 
 nav {
     display: flex;
-    border-bottom: 10px solid rgba( 180, 180, 180, 0.5);
+    border-bottom: 10px solid rgba(180, 180, 180, 0.5);
     height: 110px;
     padding: 20px;
     justify-content: space-between;
@@ -208,7 +208,7 @@ main {
     display: flex;
     justify-content: center;
     margin-top: 15px;
-    padding: 5px
+    padding: 5px;
     
 }
 
@@ -226,13 +226,13 @@ main {
 }
 
 #cancel {
-    background-color: #FA4F4F;
+    background-color: var(--red-);
     margin-right: 50px;
     
 }
 
 #comfirm {
-    background-color: #69C759;
+    background-color: var(--green-);
 
 }
 
@@ -253,3 +253,4 @@ footer div {
     background-color: var(--primary-gray-);
     cursor: pointer;
 }
+
