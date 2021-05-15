@@ -6,9 +6,6 @@ const modalContainer = document.querySelector("[data-modal-container]");
 const modulos = document.querySelector("[data-modulos]")
 
 
-
-
-
 function criarModal(){
     // Cria o modal container
     const divModalContainer = document.createElement("div");
