@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Ranga&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ranga&display=swap');
 
+:root {
+    --background-color- : #E5E5E5;
+    --white- : #FFFFFF; 
+    --primary-gray- : #C4C4C4;
+    --secondary-gray- : #E0E0E0;
+    --primary-brown- : #7E5E53;
+    --red- : #FA4F4F;
+    --green- : #69C759;
+}
 
 * {
     margin: 0;
@@ -9,10 +18,9 @@
 }
 
 body {
-    background-color: #E5E5E5;
+    background-color: var(--background-color-);
     height: 100vh;
     width: 100vw;
-    overflow-x: hidden;
 }
 
 .grampo {
@@ -44,11 +52,11 @@ nav {
 .toDoList {
     width: 200px;
     height: 70px;
-    color: #FFFFFF;
+    color: var(--white-);
     font-size: 50px;
     font-family: 'Ranga';
     text-align: center;
-    background: #7E5E53;
+    background: var(--primary-brown-);
     border-radius: 10px;
     text-decoration: none;
 }
@@ -57,7 +65,7 @@ nav {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: #C4C4C4;
+    background-color: var(--primary-gray-);
 
 
 }
@@ -81,7 +89,7 @@ main {
     margin-bottom: 32px;
     width: 750px;
     height: 45px;
-    background: #E0E0E0;
+    background: var(--secondary-gray-);
     padding: 5px 20px 9px 20px;
     border-radius: 10px;
     display: flex;
@@ -117,7 +125,7 @@ main {
     height: 512px;
     width: 380px;
     border-radius: 10px;
-    background: #E0E0E0;
+    background: var(--secondary-gray-);
     font-family: 'Open Sans';
 }
 
@@ -132,14 +140,14 @@ main {
     height: 23px;
     width: 23px;
     border-radius: 50%;
-    background-color: #C4C4C4;
+    background-color: var(--primary-gray-);
 }
 
 #close {
     height: 23px;
     width: 23px;
     border-radius: 50%;
-    background-color: #C4C4C4;
+    background-color: var(--primary-gray-);
 }
 
 .module-task-name {
@@ -155,7 +163,7 @@ main {
     height: 45px;
     padding: 5px;
     border-radius: 10px;
-    background-color: #C4C4C4;
+    background-color: var(--primary-gray-);
     color: #3C2D2D;
     font-weight: bold;
     font-size: 24px;
@@ -168,7 +176,7 @@ main {
     border-bottom-right-radius: 10px;
     padding: 5px;
     height: 408px;
-    border: 20px solid #C4C4C4;
+    border: 20px solid var(--primary-gray-);
 
 }
 
@@ -209,7 +217,7 @@ main {
     height: 40px;
     border: none;
     border-radius: 10px;
-    color: #FFFFFF;
+    color: var(--white-);
     padding: 5px;
     text-align: center;
     font-family: 'Open Sans';
@@ -242,6 +250,6 @@ footer div {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #C4C4C4;
+    background-color: var(--primary-gray-);
     cursor: pointer;
 }
