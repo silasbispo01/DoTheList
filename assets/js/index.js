@@ -6,16 +6,16 @@ const modalContainer = document.querySelector("[data-modal-container]");
 
 
 function criarModal(){
-    // Cria a div para o modal container
+    // Cria o modal container
     const divModalContainer = document.createElement("div");
     divModalContainer.classList.add("modal-container");
     
-    // Cria a div para o modal
+    // Cria o modal
     const divModal = document.createElement("div");
     divModal.className = "modal";
     divModalContainer.appendChild(divModal);
 
-    // Cria a div para o modal header
+    // Cria e configura o modal header
     const divModalHeader = document.createElement("div");
     divModalHeader.className = "modal-header";
     
@@ -36,7 +36,7 @@ function criarModal(){
 
     divModal.appendChild(divModalHeader);
 
-    // Cria a div para o modal main
+    // Cria e configura o modal main
 
     const modalMain = document.createElement("div");
     modalMain.className = "modal-main";
@@ -45,27 +45,49 @@ function criarModal(){
     p.innerText = "Título";
     modalMain.appendChild(p);
 
-    let input = document.createElement("input");
-    input.type = "text";
-    input.className = "modal-titulo";
-    modalMain.appendChild(input);
+    const input1 = document.createElement("input");
+    input1.type = "text";
+    input1.className = "modal-titulo";
+    modalMain.appendChild(input1);
 
     p = document.createElement("p");
     p.innerText = "Descrição";
     modalMain.appendChild(p);
 
-    input = document.createElement("input");
-    input.type = "text";
-    input.className = "modal-descricao";
-    modalMain.appendChild(input);
+    const input2 = document.createElement("input");
+    input2.type = "text";
+    input2.className = "modal-descricao";
+    modalMain.appendChild(input2);
 
     divModal.appendChild(modalMain);
+
+    // Cria e configura o modal footer
 
     const modalFooter = document.createElement("div");
     modalFooter.className = "modal-footer";
 
     button = document.createElement("button");
     button.innerText = "Adicionar";
+    button.addEventListener("click", () => {
+        const lista = document.querySelector("[data-task-list]");
+
+        const li = document.createElement("li");
+        
+        const p = document.createElement("p");
+        p.innerText = input1.value;
+        const button = document.createElement("button");
+        button.className = "button-remove";
+
+        const img = document.createElement("img");
+        img.src = "./assets/img/buttonX.svg";
+        img.alt = "botão remover";
+
+        button.appendChild(img);
+
+        li.appendChild(p);
+        li.appendChild(button);
+        lista.appendChild(li);
+    })
     modalFooter.appendChild(button);
 
     divModal.appendChild(modalFooter);
