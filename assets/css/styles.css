@@ -204,7 +204,7 @@ main {
     
 }
 
-.comfirm-buttons {
+.confirm-buttons {
     display: flex;
     justify-content: center;
     margin-top: 15px;
@@ -231,12 +231,10 @@ main {
     
 }
 
-#comfirm {
+#confirm {
     background-color: var(--green-);
 
 }
-
-
 
 footer div {
     height: 120px;

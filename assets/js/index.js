@@ -3,6 +3,10 @@
 const btnAdicionar = document.querySelector("[data-btn-adicionar]");
 btnAdicionar.addEventListener("click", criarModal);
 const modalContainer = document.querySelector("[data-modal-container]");
+const modulos = document.querySelector("[data-modulos]")
+
+
+
 
 
 function criarModal(){
@@ -88,6 +92,7 @@ function criarModal(){
         li.appendChild(p);
         li.appendChild(button);
         lista.appendChild(li);
+        criarModulo(input1.value, input2.value);
         apagar(divModalContainer);
     })
     modalFooter.appendChild(button);
@@ -98,29 +103,66 @@ function criarModal(){
     body.appendChild(divModalContainer);
 }
 
-function abrirModal(){
-    modalContainer.classList.remove("hidden")
-}
+function criarModulo(titulo, descricao){
+    // Cria o Modulo
+    const divModulo = document.createElement("div");
+    divModulo.className = "module";
+    // Cria e configura a div dos botões
+    const divModuleButtons = document.createElement("div");
+    divModuleButtons.className = "module-buttons";
+    const editBtn = document.createElement("a");
+    editBtn.id = "edit";
+    const closeBtn = document.createElement("a");
+    closeBtn.id = "close";
+    divModuleButtons.appendChild(editBtn);
+    divModuleButtons.appendChild(closeBtn);
+    divModulo.appendChild(divModuleButtons);
+    // Cria e configura a div do título
+    const divModuleTaskName = document.createElement("div");
+    divModuleTaskName.className = "module-task-name";
+    const taskName = document.createElement("p");
+    taskName.innerText = `${titulo}`;
+    divModuleTaskName.appendChild(taskName);
+    divModulo.appendChild(divModuleTaskName);
+    // Cria e configura a div da descrição
+    const divModuleDescription = document.createElement("div");
+    divModuleDescription.className = "module-description";
 
-function adicionarElemento (){
-    const lista = document.querySelector("[data-task-list]");
-
-    const li = document.createElement("li");
+    const descriptionForm = document.createElement("div");
+    descriptionForm.className = "description-form";
     
-    const p = document.createElement("p");
-    const button = document.createElement("button");
-    button.className = "button-remove";
-    
+    const label = document.createElement("label");
+    label.for = "description";
+    label.innerText = "Descrição";
+    descriptionForm.appendChild(label);
+    const textArea = document.createElement("textarea");
+    textArea.id = "description";
+    textArea.cols = "30";
+    textArea.rows = "10";
+    textArea.value = `${descricao}`;
+    descriptionForm.appendChild(textArea);
 
-    const img = document.createElement("img");
-    img.src = "./assets/img/buttonX.svg";
-    img.alt = "botão remover";
+    divModuleDescription.appendChild(descriptionForm);
 
-    button.appendChild(img);
+    const divConfirmButtons = document.createElement("div");
+    divConfirmButtons.className = "confirm-buttons";
 
-    li.appendChild(p);
-    li.appendChild(button);
-    lista.appendChild(li);
+    const cancelBtn = document.createElement("button");
+    cancelBtn.id = "cancel";
+    cancelBtn.className = "b";
+    cancelBtn.innerText = "cancelar";
+    divConfirmButtons.appendChild(cancelBtn);
+    const confirmBtn = document.createElement("button");
+    confirmBtn.id = "confirm";
+    confirmBtn.className = "b";
+    confirmBtn.innerText = "confirmar";
+    divConfirmButtons.appendChild(confirmBtn);
+
+    divModuleDescription.appendChild(divConfirmButtons);
+
+    divModulo.appendChild(divModuleDescription);
+
+    modulos.appendChild(divModulo);
 }
 
 function apagar(element) {
