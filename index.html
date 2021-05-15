@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/modal.css">
 </head>
 <body>
     <img src="./assets/img/GRAMPO.svg" alt="" class="grampo">
@@ -54,7 +55,26 @@
         </div>
     </div>
 
-    
+    <div class="modal-container hidden" data-modal-container>
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Adicionar Tarefa</h2>
+                <button class="modal-close-btn">
+                    <img src="./assets/img/buttonX.svg" alt="botão remover">
+                </button>
+            </div>
+            <div class="modal-main">
+                <p>Título</p>
+                <input type="text" class="modal-titulo">
+                <p>Descrição</p>
+                <input type="text" class="modal-descricao">
+            </div>
+            <div class="modal-footer">
+                <button>Salvar</button>
+            </div>
+        </div>
+    </div>
 </body>
+
 <script src="assets/js/index.js"></script>
 </html>
