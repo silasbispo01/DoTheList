@@ -200,7 +200,7 @@ main {
     display: flex;
     justify-content: center;
     margin-top: 15px;
-    padding: 5px
+    padding: 5px;
     
 }
 
@@ -227,8 +227,6 @@ main {
     background-color: #69C759;
 
 }
-
-
 
 footer div {
     height: 120px;

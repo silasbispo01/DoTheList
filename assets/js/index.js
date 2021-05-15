@@ -92,6 +92,7 @@ function criarModal(){
         li.appendChild(p);
         li.appendChild(button);
         lista.appendChild(li);
+        criarModulo(input1.value, input2.value);
         apagar(divModalContainer);
     })
     modalFooter.appendChild(button);
@@ -102,7 +103,7 @@ function criarModal(){
     body.appendChild(divModalContainer);
 }
 
-function criarModulo(){
+function criarModulo(titulo, descricao){
     // Cria o Modulo
     const divModulo = document.createElement("div");
     divModulo.className = "module";
@@ -120,7 +121,7 @@ function criarModulo(){
     const divModuleTaskName = document.createElement("div");
     divModuleTaskName.className = "module-task-name";
     const taskName = document.createElement("p");
-    taskName.innerText = "Ir à academia";
+    taskName.innerText = `${titulo}`;
     divModuleTaskName.appendChild(taskName);
     divModulo.appendChild(divModuleTaskName);
     // Cria e configura a div da descrição
@@ -138,6 +139,7 @@ function criarModulo(){
     textArea.id = "description";
     textArea.cols = "30";
     textArea.rows = "10";
+    textArea.value = `${descricao}`;
     descriptionForm.appendChild(textArea);
 
     divModuleDescription.appendChild(descriptionForm);
