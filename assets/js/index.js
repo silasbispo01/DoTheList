@@ -88,6 +88,7 @@ function criarModal(){
         li.appendChild(p);
         li.appendChild(button);
         lista.appendChild(li);
+        apagar(divModalContainer);
     })
     modalFooter.appendChild(button);
 
