@@ -25,7 +25,7 @@ function criarModal(){
 
     let button = document.createElement("button");
     button.className = "modal-close-btn";
-    button.addEventListener("click", fecharModal);
+    button.setAttribute("onclick", "apagar(this.parentNode.parentNode.parentNode)")
     
     const img = document.createElement("img");
     img.src = "./assets/img/buttonX.svg";
@@ -77,6 +77,7 @@ function criarModal(){
         p.innerText = input1.value;
         const button = document.createElement("button");
         button.className = "button-remove";
+        button.setAttribute("onclick","apagar(this.parentNode)")
 
         const img = document.createElement("img");
         img.src = "./assets/img/buttonX.svg";
@@ -100,12 +101,6 @@ function abrirModal(){
     modalContainer.classList.remove("hidden")
 }
 
-// Pega o modal container e remove.
-function fecharModal(e) {
-    const modal = e.target.parentNode.parentNode.parentNode.parentNode;
-    modal.remove();
-}
-
 function adicionarElemento (){
     const lista = document.querySelector("[data-task-list]");
 
@@ -114,6 +109,7 @@ function adicionarElemento (){
     const p = document.createElement("p");
     const button = document.createElement("button");
     button.className = "button-remove";
+    
 
     const img = document.createElement("img");
     img.src = "./assets/img/buttonX.svg";
@@ -124,4 +120,8 @@ function adicionarElemento (){
     li.appendChild(p);
     li.appendChild(button);
     lista.appendChild(li);
+}
+
+function apagar(element) {
+    element.remove()
 }

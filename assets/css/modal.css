@@ -45,6 +45,15 @@
     position: absolute;
     top: 2%;
     right: 1%;
+    cursor: pointer;
+    border: none;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+}
+
+.modal-close-btn img {
+    transform: scale(0.8);
 }
 
 .hidden {
