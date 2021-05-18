@@ -35,7 +35,7 @@ body {
     margin: 90px 70px 70px 70px;
     background-image: url(/assets/img/backgound.svg);
     background-size: cover;
-    
+    border: 40px solid var(--primary-brown-);
     border-radius: 10px;
     
 }
