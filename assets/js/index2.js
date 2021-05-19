@@ -101,6 +101,12 @@ function addTasks () {
 }
 
 
+
+function darkmode(){
+    
+};
+
+darkmode();
 modalOpenClose();
 addTasks();
 

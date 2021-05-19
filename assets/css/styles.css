@@ -41,7 +41,9 @@ body {
     border-radius: 10px;
     
 }
-/*  NAVEGAÇÃO */
+
+/*   NAVEGAÇÃO */
+
 nav {
     display: flex;
     border-bottom: 10px solid rgba(180, 180, 180, 0.5);
@@ -63,19 +65,28 @@ nav {
     text-decoration: none;
 }
 
-.darkmode {
-
-    width: 70px;
+.nav-buttons button {
     height: 70px;
+    width: 70px;
+    cursor: pointer;
+    margin-left: 20px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary-gray-);
 }
 
-.avatar {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-color: var(--primary-gray-);
+.darkmode i {
+    font-size: 50px;
+    transition: 500ms;
+}
 
+.darkmode i:hover {
+    transform: scale(0.9);
+}
 
+.avatar i {
+    font-size: 60px;
+    text-align: center;
 }
 
 /*  CENTRO DA PÁGINA  */
@@ -135,6 +146,7 @@ main {
 .module {
     height: 512px;
     width: 380px;
+    padding-top: 5px;
     border-radius: 10px;
     background: var(--secondary-gray-);
     font-family: 'Open Sans';
@@ -147,14 +159,19 @@ main {
     height: 23px;
 }
 
-#edit {
+.module-buttons button {
+    cursor: pointer;
+    border: none;
+}
+
+.edit {
     height: 23px;
     width: 23px;
     border-radius: 50%;
     background-color: var(--primary-gray-);
 }
 
-#close {
+.close {
     height: 23px;
     width: 23px;
     border-radius: 50%;
@@ -263,6 +280,11 @@ footer div {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    border: none;
     background-color: var(--primary-gray-);
     cursor: pointer;
+}
+
+.adicionar i {
+    font-size: 30px;
 }
