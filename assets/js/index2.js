@@ -6,10 +6,23 @@ class task {
         this.title = title;
         this.description = description;
         task.id++;
+        window.localStorage.setItem('idCount', task.id);
         this.id = task.id;
     }
 }
-const tasks = [];
+
+task.id = window.localStorage.getItem('idCount');
+
+let tasks;
+if (JSON.parse(window.localStorage.getItem('tasks')) != null){
+    tasks = JSON.parse(window.localStorage.getItem('tasks'));
+    for (let i = 0; i < tasks.length; i++)
+    {
+        addOldTasks(tasks[i]);
+    }
+} else {
+    tasks = [];
+}
 
 function modalOpenClose () {
     
@@ -44,6 +57,7 @@ function editModuleInfo () {
         if (taskDescription.value != task.description) {
             task.description = taskDescription.value;
         }
+        window.localStorage.setItem('tasks', JSON.stringify(tasks));
     });
 }
 
@@ -108,6 +122,7 @@ function addTasks () {
 
             }, true)
             tasks.push(thisTask);
+            window.localStorage.setItem('tasks', JSON.stringify(tasks));
             modalExit();
 
         }  
@@ -115,6 +130,46 @@ function addTasks () {
 
     
 //fim da função// 
+}
+
+function addOldTasks(i) {
+    const taskListElement = document.querySelector('[data-task-list]')
+
+    const addLi = document.createElement('li');
+    taskListElement.appendChild(addLi)
+
+    const addInput = document.createElement('input');
+    addLi.appendChild(addInput);
+    addInput.type = "checkbox"
+    
+    const addP = document.createElement('p');
+    addLi.appendChild(addP);
+    
+    const addButton = document.createElement('button');
+    addLi.appendChild(addButton);
+    addButton.classList.add('remove-button');
+    addButton.setAttribute('onclick', 'eraseTask(this.parentNode)');
+    
+    const addImg = document.createElement('img');
+    addButton.appendChild(addImg);
+    addImg.src = "./assets/img/buttonX.svg";
+    
+    const thisTask = i;
+    
+    addP.textContent = thisTask.title;
+
+    
+    addLi.id = thisTask.id;
+    addLi.addEventListener('click', () => {
+        const module = document.querySelector('[data-module]');
+        module.id = thisTask.id;
+        module.classList.remove('opacity0');
+        let taskName = document.querySelector('[data-task-name]');
+        taskName.textContent = thisTask.title;
+        let taskDescription = document.querySelector('[data-task-description]');
+        taskDescription.value = thisTask.description;
+
+    }, true)
 }
 
 function eraseTask(element) {
@@ -126,6 +181,8 @@ function eraseTask(element) {
     taskDescription.textContent = '';
 
     erase(element);
+    tasks.splice(tasks.indexOf(tasks.find(x => x.id == module.id)), 1)
+    window.localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function erase (element) {

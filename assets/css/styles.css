@@ -6,12 +6,27 @@
 :root {
     --background-color- : #E5E5E5;
     --white- : #FFFFFF; 
+    --font-color- : #000000;
     --primary-gray- : #C4C4C4;
     --secondary-gray- : #E0E0E0;
     --primary-brown- : #7E5E53;
     --red- : #FA4F4F;
     --green- : #69C759;
+    --background-texture- : url(/assets/img/background.svg)
 }
+
+/* :root {
+
+    --background-color- : #484747;
+    --white- : #000000; 
+    --font-color- : #FFF;
+    --primary-gray- : #444444;
+    --secondary-gray- : #737171;
+    --primary-brown- : #7E5E53;
+    --red- : #FA4F4F;
+    --green- : #69C759;
+    --background-texture- : url(/assets/img/background-darkmode.svg)
+} */
 
 * {
     margin: 0;
@@ -35,7 +50,7 @@ body {
 .prancheta {
     
     margin: 90px 70px 70px 70px;
-    background-image: url(/assets/img/backgound.svg);
+    background-image: var(--background-texture-);
     background-size: cover;
     border: 40px solid var(--primary-brown-);
     border-radius: 10px;
@@ -56,7 +71,7 @@ nav {
 .toDoList {
     width: 200px;
     height: 70px;
-    color: var(--white-);
+    color: var(--font-color-);
     font-size: 50px;
     font-family: 'Ranga';
     text-align: center;
@@ -73,6 +88,7 @@ nav {
     border: none;
     border-radius: 50%;
     background: var(--primary-gray-);
+    color: var(--font-color-);
 }
 
 .darkmode i {
@@ -120,7 +136,7 @@ main {
 
 .task-list p {
     
-    color: #3C2D2D;
+    color: var(--font-color-);
     font-family: 'Open Sans' ;
     font-weight: bold;
     font-size: 24px;
@@ -132,6 +148,7 @@ main {
     background: 0;
     font-size: 20px;
     cursor: pointer;
+    color: var(--font-color-);
 }
 
 .task-list input {
@@ -162,6 +179,7 @@ main {
 .module-buttons button {
     cursor: pointer;
     border: none;
+    color: var(--font-color-);
 }
 
 .edit {
@@ -192,7 +210,7 @@ main {
     padding: 5px;
     border-radius: 10px;
     background-color: var(--primary-gray-);
-    color: #3C2D2D;
+    color: var(--font-color-);
     font-weight: bold;
     font-size: 24px;
     
@@ -205,6 +223,7 @@ main {
     padding: 5px;
     height: 408px;
     border: 20px solid var(--primary-gray-);
+    color: var(--font-color-);
 
 }
 
@@ -246,7 +265,7 @@ main {
     height: 40px;
     border: none;
     border-radius: 10px;
-    color: var(--white-);
+    color: var(--font-color-);
     padding: 5px;
     text-align: center;
     font-family: 'Open Sans';
@@ -282,6 +301,7 @@ footer div {
     border-radius: 50%;
     border: none;
     background-color: var(--primary-gray-);
+    color: var(--font-color-);
     cursor: pointer;
 }
 
