@@ -241,7 +241,7 @@ main {
     padding: 5px;
     
 }
-.b {
+.buttons {
     width: 80px;
     height: 40px;
     border: none;
@@ -254,13 +254,13 @@ main {
     cursor: pointer;
 }
 
-#cancel {
+.cancel {
     background-color: var(--red-);
     margin-right: 50px;
     
 }
 
-#confirm {
+.confirm {
     background-color: var(--green-);
 
 }
@@ -285,6 +285,12 @@ footer div {
     cursor: pointer;
 }
 
+
 .adicionar i {
     font-size: 30px;
+}
+
+.opacity0 {
+    opacity: 0;
+    pointer-events: none;
 }
