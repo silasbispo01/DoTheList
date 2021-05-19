@@ -117,6 +117,7 @@
 }
 
 
+/* MODAL DE EXCLUSÃO DAS LISTAS */
 
 .modal-confirmacao {
     display: flex;
@@ -131,6 +132,7 @@
 
 .modal-confirmacao h2 {
     color: var(--font-color-);
+    font-family: 'Open Sans';
 }
 
 .buttons-container {
