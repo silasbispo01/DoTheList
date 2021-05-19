@@ -35,7 +35,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: 1s;
 }
 
 body {
@@ -49,7 +48,7 @@ body {
 }
 
 i {
-    transition: 500ms;
+    transition: 1s;
 }
 
 i:hover {
@@ -67,6 +66,7 @@ i:hover {
     
     margin: 90px 70px 70px 70px;
     background-image: var(--background-texture-);
+    transition: 1s;
     background-size: cover;
     border: 40px solid var(--primary-brown-);
     border-radius: 10px;
@@ -81,6 +81,7 @@ nav {
     height: 110px;
     padding: 20px;
     justify-content: space-between;
+    transition: 1s;
 }
 
 
@@ -123,6 +124,7 @@ main {
     display: flex;
     justify-content: space-between;
     margin: 130px 160px 0 60px;
+    transition: 1s;
     
 }
 
@@ -179,6 +181,7 @@ main {
     border-radius: 10px;
     background: var(--secondary-gray-);
     font-family: 'Open Sans';
+    transition: 1s;
 }
 
 .module-buttons {
@@ -270,6 +273,7 @@ main {
     justify-content: center;
     margin-top: 15px;
     padding: 5px;
+    transition: 1s;
     
 }
 .buttons {
@@ -304,6 +308,7 @@ footer div {
     align-items: center;
     display: flex;
     padding: 20px;
+    transition: 1s;
 }
 
 .adicionar {

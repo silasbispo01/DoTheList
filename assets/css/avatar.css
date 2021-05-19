@@ -33,6 +33,10 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.avatar-container:hover {
+    transform: scale(1.1);
+}
+
 .avatar-modal {
     display: flex;
     flex-direction: column;
@@ -69,52 +73,3 @@
 .avatar-options img:hover{
     transform: scale(1.1);
 }
-/* .avatar-container {
-    top: 0;
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-}
-
-.avatar-modal {
-    height: 100vh;
-    background: black;
-    align-items: center;
-    justify-content: center;
-}
-.avatar-button {
-    display: block;
-    background: black;
-}
-
-
-.avatar-options {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-.avatar-options ul{
-    display: flex;
-    flex-wrap:wrap;
-    justify-content: space-around;
-    max-width: 330px;
-    list-style: none;
-    background: var(--secondary-gray-);
-    border-radius: 10px;
-    
-}
-
-.avatar-options li {
-    cursor: pointer;
-}
-
-
-.avatar-options img {
-    padding: 15px;
-    height: 100px;
-}
-.avatar-options img:hover {
-    transform: scale(1.1);
-}
- */
