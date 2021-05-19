@@ -10,6 +10,12 @@ function editModuleInfo () {
 
     editButton.addEventListener('click', switchEditModule)
 
+    cancelButton.addEventListener('click', () => {
+        task = tasks.find(x => x.id == module.id);
+        taskDescription.value = task.description;
+        switchEditModule();
+    })
+
     closeButton.addEventListener('click', () => {
         module.classList.add('opacity0');
     })
