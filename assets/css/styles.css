@@ -16,7 +16,7 @@
     --primary-brown- : #7E5E53;
     --red- : #FA4F4F;
     --green- : #69C759;
-    --background-texture- : url(./assets/img/background.svg);
+    --background-texture- : url(/assets/img/background.svg);
 }
 
 :root .darkmode {
@@ -28,7 +28,7 @@
     --primary-brown- : #7E5E53;
     --red- : #FA4F4F;
     --green- : #69C759;
-    --background-texture- : url(./assets/img/background-darkmode.svg);
+    --background-texture- : url(/assets/img/background-darkmode.svg);
 }
 
 * {
