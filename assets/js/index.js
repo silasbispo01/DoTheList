@@ -44,8 +44,6 @@ function modalOpenClose () {
     }
 };
 
-
-
 //função de adicionar tasks//
 function addTasks () {
     const addTaskButton = document.querySelector('[data-addTaskButton]');

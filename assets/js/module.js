@@ -5,9 +5,14 @@ function editModuleInfo () {
     const taskName = document.querySelector('[data-task-name]');
     const taskDescription = document.querySelector('[data-task-description]');
     const editButton = document.querySelector('[data-button-edit]');
+    const closeButton = document.querySelector('[data-button-close-module]');
     let task;
+
     editButton.addEventListener('click', switchEditModule)
 
+    closeButton.addEventListener('click', () => {
+        module.classList.add('opacity0');
+    })
 
     confirmButton.addEventListener('click', () => {
         task = tasks.find(x => x.id == module.id);
