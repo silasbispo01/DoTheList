@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Ranga&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ranga&display=swap');
 
+/*  GLOBAL */
+
 :root {
     --background-color- : #E5E5E5;
     --white- : #FFFFFF; 
@@ -39,7 +41,7 @@ body {
     border-radius: 10px;
     
 }
-
+/*  NAVEGAÇÃO */
 nav {
     display: flex;
     border-bottom: 10px solid rgba(180, 180, 180, 0.5);
@@ -61,6 +63,12 @@ nav {
     text-decoration: none;
 }
 
+.darkmode {
+
+    width: 70px;
+    height: 70px;
+}
+
 .avatar {
     width: 70px;
     height: 70px;
@@ -70,6 +78,7 @@ nav {
 
 }
 
+/*  CENTRO DA PÁGINA  */
 
 main {
     display: flex;
@@ -119,6 +128,9 @@ main {
     width: 20px;
     margin-right: 10px;
 }
+
+
+/*  MODULO COM DESCRIÇÃO - LADO DIREITO  */
 
 .module {
     height: 512px;
@@ -203,6 +215,8 @@ main {
     
 }
 
+/*  BOTÕES DO MODULO   */
+
 .confirm-buttons {
     display: flex;
     justify-content: center;
@@ -210,7 +224,6 @@ main {
     padding: 5px;
     
 }
-
 .b {
     width: 80px;
     height: 40px;
@@ -235,6 +248,9 @@ main {
 
 }
 
+
+/*  RODAPÉ  */
+
 footer div {
     height: 120px;
     align-items: center;
@@ -250,4 +266,3 @@ footer div {
     background-color: var(--primary-gray-);
     cursor: pointer;
 }
-
