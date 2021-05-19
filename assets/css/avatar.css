@@ -1,0 +1,75 @@
+:root {
+    --background-color- : #E5E5E5;
+    --white- : #FFFFFF; 
+    --font-color- : #000000;
+    --primary-gray- : #C4C4C4;
+    --secondary-gray- : #E0E0E0;
+    --primary-brown- : #7E5E53;
+    --red- : #FA4F4F;
+    --green- : #69C759;
+}
+
+:root .darkmode {
+    --background-color- : #484747;
+    --white- : #000000; 
+    --font-color- : #FFF;
+    --primary-gray- : #444444;
+    --secondary-gray- : #737171;
+    --primary-brown- : #7E5E53;
+    --red- : #FA4F4F;
+    --green- : #69C759;
+}
+
+
+
+.avatar-container {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.avatar-container:hover {
+    transform: scale(1.1);
+}
+
+.avatar-modal {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    max-width: 350px;
+    border-radius: 10px;
+    background: var(--secondary-gray-);
+}
+
+.avatar-button {
+    margin-left: auto;
+    border: none;
+    background: none;
+}
+
+.avatar-button i {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.avatar-options ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.avatar-options img {
+    height: 100px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.avatar-options img:hover{
+    transform: scale(1.1);
+}

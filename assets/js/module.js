@@ -1,0 +1,49 @@
+function editModuleInfo () {
+    const module = document.querySelector('[data-module]');
+    const cancelButton = document.querySelector('[data-module-cancel-button]');
+    const confirmButton = document.querySelector('[data-module-confirm-button]');
+    const taskName = document.querySelector('[data-task-name]');
+    const taskDescription = document.querySelector('[data-task-description]');
+    const editButton = document.querySelector('[data-button-edit]');
+    const closeButton = document.querySelector('[data-button-close-module]');
+    let task;
+
+    editButton.addEventListener('click', switchEditModule)
+
+    cancelButton.addEventListener('click', () => {
+        task = tasks.find(x => x.id == module.id);
+        taskDescription.value = task.description;
+        switchEditModule();
+    })
+
+    closeButton.addEventListener('click', () => {
+        module.classList.add('opacity0');
+    })
+
+    confirmButton.addEventListener('click', () => {
+        task = tasks.find(x => x.id == module.id);
+        if (taskDescription.value != task.description) {
+            task.description = taskDescription.value;
+        }
+        window.localStorage.setItem('tasks', JSON.stringify(tasks));
+        switchEditModule();
+    });
+}
+
+function switchEditModule() {
+    const saveChangesButton = document.querySelector('[data-module-confirm-button]');
+    const cancelChangesButton = document.querySelector('[data-module-cancel-button]');
+    const descricao = document.querySelector('[data-task-description]');
+    if (saveChangesButton.classList.contains('opacity0'))
+    {
+        saveChangesButton.classList.remove('opacity0');
+        cancelChangesButton.classList.remove('opacity0');
+        descricao.removeAttribute('readonly');
+    } else {
+        saveChangesButton.classList.add('opacity0');
+        cancelChangesButton.classList.add('opacity0');
+        descricao.setAttribute('readonly', 'true');
+    }
+}
+
+editModuleInfo();

@@ -1,167 +1,261 @@
 "use strict"
 
-const btnAdicionar = document.querySelector("[data-btn-adicionar]");
-btnAdicionar.addEventListener("click", criarModal);
-const modalContainer = document.querySelector("[data-modal-container]");
-const modulos = document.querySelector("[data-modulos]")
+class task {
+    static id = 0;
+    constructor(title = "", description = "") {
+        this.title = title;
+        this.description = description;
+        task.id++;
+        window.localStorage.setItem('idCount', task.id);
+        this.id = task.id;
+    }
+}
 
+task.id = window.localStorage.getItem('idCount');
 
-function criarModal(){
-    // Cria o modal container
-    const divModalContainer = document.createElement("div");
-    divModalContainer.classList.add("modal-container");
+let tasks;
+if (JSON.parse(window.localStorage.getItem('tasks')) != null){
+    tasks = JSON.parse(window.localStorage.getItem('tasks'));
+    for (let i = 0; i < tasks.length; i++)
+    {
+        addOldTasks(tasks[i]);
+    }
+} else {
+    tasks = [];
+}
+
+function modalOpenClose () {
     
-    // Cria o modal
-    const divModal = document.createElement("div");
-    divModal.className = "modal";
-    divModalContainer.appendChild(divModal);
-
-    // Cria e configura o modal header
-    const divModalHeader = document.createElement("div");
-    divModalHeader.className = "modal-header";
+    const prancheta = document.querySelector('[data-prancheta]');
+    const modalExitButton = document.querySelector('.modal-button-exit')
+    const modalAddButton = document.querySelector('[data-button-add]')
+    const modalContainer = document.querySelector('[data-modal-container]')
     
-    const h2 = document.createElement("h2");
-    h2.innerText = "Adicionar Tarefa";
-    divModalHeader.appendChild(h2)
-
-    let button = document.createElement("button");
-    button.className = "modal-close-btn";
-    button.setAttribute("onclick", "apagar(this.parentNode.parentNode.parentNode)")
     
-    const img = document.createElement("img");
-    img.src = "./assets/img/buttonX.svg";
-    img.alt = "botão remover";
+    modalAddButton.addEventListener('click', modalOpen);
+    
+    modalExitButton.addEventListener('click', modalExit);
+    
+    function modalOpen() {
+        modalContainer.classList.remove('hidden')
+        prancheta.classList.add('blur')
+    
+    }
+    function modalExit() {
+        modalContainer.classList.add('hidden');
+        prancheta.classList.remove('blur')
+    }
+};
 
-    button.appendChild(img);
-    divModalHeader.appendChild(button);
-
-    divModal.appendChild(divModalHeader);
-
-    // Cria e configura o modal main
-
-    const modalMain = document.createElement("div");
-    modalMain.className = "modal-main";
-
-    let p = document.createElement("p");
-    p.innerText = "Título";
-    modalMain.appendChild(p);
-
-    const input1 = document.createElement("input");
-    input1.type = "text";
-    input1.className = "modal-titulo";
-    modalMain.appendChild(input1);
-
-    p = document.createElement("p");
-    p.innerText = "Descrição";
-    modalMain.appendChild(p);
-
-    const input2 = document.createElement("input");
-    input2.type = "text";
-    input2.className = "modal-descricao";
-    modalMain.appendChild(input2);
-
-    divModal.appendChild(modalMain);
-
-    // Cria e configura o modal footer
-
-    const modalFooter = document.createElement("div");
-    modalFooter.className = "modal-footer";
-
-    button = document.createElement("button");
-    button.innerText = "Adicionar";
-    button.addEventListener("click", () => {
-        const lista = document.querySelector("[data-task-list]");
-
-        const li = document.createElement("li");
+//função de adicionar tasks//
+function addTasks () {
+    const prancheta = document.querySelector('[data-prancheta]');
+    const addTaskButton = document.querySelector('[data-addTaskButton]');
+    addTaskButton.addEventListener('click', setTask);
+    
+    function setTask () {
+        const modalContainer = document.querySelector('[data-modal-container]')
+        let nameTask = document.querySelector('#modal-name');
+        const taskListElement = document.querySelector('[data-task-list]')
+        // descrição que só vai ser usada no module //
+        const descriptionTask = document.querySelector('#modal-description');
         
-        const p = document.createElement("p");
-        p.innerText = input1.value;
-        const button = document.createElement("button");
-        button.className = "button-remove";
-        button.setAttribute("onclick","apagar(this.parentNode)")
+        
+        // função de fechar ao adicionar uma task // 
+        function modalExit() {
+            nameTask.value = '';
+            descriptionTask.value = '';
+            modalContainer.classList.add('hidden');
+            prancheta.classList.remove('blur')
+        }
 
-        const img = document.createElement("img");
-        img.src = "./assets/img/buttonX.svg";
-        img.alt = "botão remover";
+        // verificar o campo vazio + adicionar li{p, button{img}}// 
 
-        button.appendChild(img);
+        if (nameTask.value == '') { 
+            alert('Adicione um nome!')
 
-        li.appendChild(p);
-        li.appendChild(button);
-        lista.appendChild(li);
-        criarModulo(input1.value, input2.value);
-        apagar(divModalContainer);
-    })
-    modalFooter.appendChild(button);
+        } else {
 
-    divModal.appendChild(modalFooter);
+            const addLi = document.createElement('li');
+            taskListElement.appendChild(addLi)
 
-    const body = document.querySelector("body");
-    body.appendChild(divModalContainer);
-}
+            const addInput = document.createElement('input');
+            addLi.appendChild(addInput);
+            addInput.type = "checkbox"
+            
+            const addP = document.createElement('p');
+            addLi.appendChild(addP);
+            
+            const addButton = document.createElement('button');
+            addLi.appendChild(addButton);
+            addButton.classList.add('remove-button');
+            addButton.setAttribute('onclick', 'openConfirmModal(this.parentNode)');
 
-function criarModulo(titulo, descricao){
-    // Cria o Modulo
-    const divModulo = document.createElement("div");
-    divModulo.className = "module";
-    // Cria e configura a div dos botões
-    const divModuleButtons = document.createElement("div");
-    divModuleButtons.className = "module-buttons";
-    const editBtn = document.createElement("a");
-    editBtn.id = "edit";
-    const closeBtn = document.createElement("a");
-    closeBtn.id = "close";
-    divModuleButtons.appendChild(editBtn);
-    divModuleButtons.appendChild(closeBtn);
-    divModulo.appendChild(divModuleButtons);
-    // Cria e configura a div do título
-    const divModuleTaskName = document.createElement("div");
-    divModuleTaskName.className = "module-task-name";
-    const taskName = document.createElement("p");
-    taskName.innerText = `${titulo}`;
-    divModuleTaskName.appendChild(taskName);
-    divModulo.appendChild(divModuleTaskName);
-    // Cria e configura a div da descrição
-    const divModuleDescription = document.createElement("div");
-    divModuleDescription.className = "module-description";
+            
 
-    const descriptionForm = document.createElement("div");
-    descriptionForm.className = "description-form";
+            const addImg = document.createElement('img');
+            addButton.appendChild(addImg);
+            addImg.src = "./assets/img/buttonX.svg";
+            
+            addP.textContent = `${nameTask.value}`;
+
+            const thisTask = new task(nameTask.value, descriptionTask.value);
+            addLi.id = thisTask.id;
+            addLi.addEventListener('click', () => {
+                const module = document.querySelector('[data-module]');
+                module.id = thisTask.id;
+                module.classList.remove('opacity0');
+                let taskName = document.querySelector('[data-task-name]');
+                taskName.textContent = thisTask.title;
+                let taskDescription = document.querySelector('[data-task-description]');
+                taskDescription.value = thisTask.description;
+
+            }, true)
+            tasks.push(thisTask);
+            window.localStorage.setItem('tasks', JSON.stringify(tasks));
+            modalExit();
+
+        }  
+    }
+
     
-    const label = document.createElement("label");
-    label.for = "description";
-    label.innerText = "Descrição";
-    descriptionForm.appendChild(label);
-    const textArea = document.createElement("textarea");
-    textArea.id = "description";
-    textArea.cols = "30";
-    textArea.rows = "10";
-    textArea.value = `${descricao}`;
-    descriptionForm.appendChild(textArea);
-
-    divModuleDescription.appendChild(descriptionForm);
-
-    const divConfirmButtons = document.createElement("div");
-    divConfirmButtons.className = "confirm-buttons";
-
-    const cancelBtn = document.createElement("button");
-    cancelBtn.id = "cancel";
-    cancelBtn.className = "b";
-    cancelBtn.innerText = "cancelar";
-    divConfirmButtons.appendChild(cancelBtn);
-    const confirmBtn = document.createElement("button");
-    confirmBtn.id = "confirm";
-    confirmBtn.className = "b";
-    confirmBtn.innerText = "confirmar";
-    divConfirmButtons.appendChild(confirmBtn);
-
-    divModuleDescription.appendChild(divConfirmButtons);
-
-    divModulo.appendChild(divModuleDescription);
-
-    modulos.appendChild(divModulo);
+//fim da função// 
 }
 
-function apagar(element) {
-    element.remove()
+//função de adicionar tasks da memoria ao abrir a página//
+function addOldTasks(i) {
+    const taskListElement = document.querySelector('[data-task-list]')
+
+    const addLi = document.createElement('li');
+    taskListElement.appendChild(addLi)
+
+    const addInput = document.createElement('input');
+    addLi.appendChild(addInput);
+    addInput.type = "checkbox"
+    
+    const addP = document.createElement('p');
+    addLi.appendChild(addP);
+    
+    const addButton = document.createElement('button');
+    addLi.appendChild(addButton);
+    addButton.classList.add('remove-button');
+    addButton.setAttribute('onclick', 'eraseTask(this.parentNode)');
+    
+    const addImg = document.createElement('img');
+    addButton.appendChild(addImg);
+    addImg.src = "./assets/img/buttonX.svg";
+    
+    const thisTask = i;
+    
+    addP.textContent = thisTask.title;
+
+    
+    addLi.id = thisTask.id;
+    addLi.addEventListener('click', () => {
+        const module = document.querySelector('[data-module]');
+        module.id = thisTask.id;
+        module.classList.remove('opacity0');
+        let taskName = document.querySelector('[data-task-name]');
+        taskName.textContent = thisTask.title;
+        let taskDescription = document.querySelector('[data-task-description]');
+        taskDescription.value = thisTask.description;
+
+    }, true)
+};
+
+//função de abrir o modal de exclusão//
+function openConfirmModal(element) {
+    const confirmModal = document.querySelector('[data-modal-confirmacao-container]');
+    const confirmExclusionButton = document.querySelector('[data-modal-confirm-button]');
+
+    confirmModal.classList.remove('hidden');
+    confirmExclusionButton.addEventListener('click', () =>{
+        eraseTask(element);
+        confirmModal.classList.add('hidden');
+        confirmExclusionButton.removeEventListener('click');
+    })
 }
+
+//função de confirmar exclusão de tasks//
+function confirmExclusion () {
+    const confirmModal = document.querySelector('[data-modal-confirmacao-container]');
+    const cancelExclusionButton = document.querySelector('[data-modal-cancel-button]')
+    const confirmExclusionButton = document.querySelector('[data-modal-confirm-button]');
+
+    cancelExclusionButton.addEventListener('click', () => {
+        confirmModal.classList.add('hidden');
+        confirmExclusionButton.removeEventListener('click');
+    })
+}
+
+function eraseTask(element) {
+    const module = document.querySelector('[data-module]');
+    module.classList.add('opacity0');
+    let taskName = document.querySelector('[data-task-name]');
+    taskName.textContent = '';
+    let taskDescription = document.querySelector('[data-task-description]');
+    taskDescription.textContent = '';
+
+    erase(element);
+    tasks.splice(tasks.indexOf(tasks.find(x => x.id == module.id)), 1)
+    window.localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+
+function erase (element) {
+    element.remove();
+};
+
+//função de darkmode//
+function setDarkmode(){
+    const darkmodeButton = document.querySelector('.darkmode-button');
+    const body = document.querySelector('[data-darkmode]');
+    const lua = document.querySelector('[data-lua]');
+    const sol = document.querySelector('[data-sol]');
+
+    let on = false;
+
+    darkmodeButton.addEventListener('click', setDarkmode);
+    
+    function setDarkmode () {
+        if (on == false) {
+            body.classList.add('darkmode');
+            lua.classList.remove('hidden')
+            sol.classList.add('hidden')
+            on = true;
+        } else {
+            body.classList.remove('darkmode');
+            lua.classList.add('hidden')
+            sol.classList.remove('hidden')
+            on = false;
+        }
+    }
+
+};
+
+//função de setar avatar//
+function setAvatar () {
+    const prancheta = document.querySelector('[data-prancheta]');
+    const avatarButton = document.querySelector('[data-avatar]');
+    const closeModalButton = document.querySelector('.avatar-button')
+    const avatarModal = document.querySelector('[data-avatar-container]');
+
+    closeModalButton.addEventListener('click', closeAvatarModal)
+    avatarButton.addEventListener('click', openAvatarModal)
+
+    function openAvatarModal () {
+        avatarModal.classList.remove('hidden')
+        prancheta.classList.add('blur')
+    }
+
+    function closeAvatarModal () {
+        avatarModal.classList.add('hidden')
+        prancheta.classList.remove('blur')
+    }
+};
+
+addTasks();
+modalOpenClose();
+confirmExclusion();
+setAvatar();
+setDarkmode();
+

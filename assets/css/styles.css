@@ -3,6 +3,10 @@
 
 /*  GLOBAL */
 
+*:focus {
+    outline: none;
+}
+
 :root {
     --background-color- : #E5E5E5;
     --white- : #FFFFFF; 
@@ -12,11 +16,10 @@
     --primary-brown- : #7E5E53;
     --red- : #FA4F4F;
     --green- : #69C759;
-    --background-texture- : url(/assets/img/background.svg)
+    --background-texture- : url(/assets/img/background.svg);
 }
 
-/* :root {
-
+:root .darkmode {
     --background-color- : #484747;
     --white- : #000000; 
     --font-color- : #FFF;
@@ -25,8 +28,8 @@
     --primary-brown- : #7E5E53;
     --red- : #FA4F4F;
     --green- : #69C759;
-    --background-texture- : url(/assets/img/background-darkmode.svg)
-} */
+    --background-texture- : url(/assets/img/background-darkmode.svg);
+}
 
 * {
     margin: 0;
@@ -40,6 +43,18 @@ body {
     width: 100vw;
 }
 
+.blur {
+    filter: blur(4px);
+}
+
+i {
+    transition: 1s;
+}
+
+i:hover {
+    transform: scale(0.9);
+}
+
 .grampo {
     position: absolute;
     right: 50%;
@@ -51,6 +66,7 @@ body {
     
     margin: 90px 70px 70px 70px;
     background-image: var(--background-texture-);
+    transition: 1s;
     background-size: cover;
     border: 40px solid var(--primary-brown-);
     border-radius: 10px;
@@ -65,6 +81,7 @@ nav {
     height: 110px;
     padding: 20px;
     justify-content: space-between;
+    transition: 1s;
 }
 
 
@@ -91,14 +108,10 @@ nav {
     color: var(--font-color-);
 }
 
-.darkmode i {
+.darkmode-button i {
     font-size: 50px;
-    transition: 500ms;
 }
 
-.darkmode i:hover {
-    transform: scale(0.9);
-}
 
 .avatar i {
     font-size: 60px;
@@ -111,6 +124,7 @@ main {
     display: flex;
     justify-content: space-between;
     margin: 130px 160px 0 60px;
+    transition: 1s;
     
 }
 
@@ -167,6 +181,7 @@ main {
     border-radius: 10px;
     background: var(--secondary-gray-);
     font-family: 'Open Sans';
+    transition: 1s;
 }
 
 .module-buttons {
@@ -258,6 +273,7 @@ main {
     justify-content: center;
     margin-top: 15px;
     padding: 5px;
+    transition: 1s;
     
 }
 .buttons {
@@ -292,6 +308,7 @@ footer div {
     align-items: center;
     display: flex;
     padding: 20px;
+    transition: 1s;
 }
 
 .adicionar {
