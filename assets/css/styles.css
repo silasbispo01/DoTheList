@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Ranga&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ranga&display=swap');
 
+/*  GLOBAL */
+
 :root {
     --background-color- : #E5E5E5;
     --white- : #FFFFFF; 
@@ -40,6 +42,8 @@ body {
     
 }
 
+/*   NAVEGAÇÃO */
+
 nav {
     display: flex;
     border-bottom: 10px solid rgba(180, 180, 180, 0.5);
@@ -61,15 +65,31 @@ nav {
     text-decoration: none;
 }
 
-.avatar {
-    width: 70px;
+.nav-buttons button {
     height: 70px;
+    width: 70px;
+    cursor: pointer;
+    margin-left: 20px;
+    border: none;
     border-radius: 50%;
-    background-color: var(--primary-gray-);
-
-
+    background: var(--primary-gray-);
 }
 
+.darkmode i {
+    font-size: 50px;
+    transition: 500ms;
+}
+
+.darkmode i:hover {
+    transform: scale(0.9);
+}
+
+.avatar i {
+    font-size: 60px;
+    text-align: center;
+}
+
+/*  CENTRO DA PÁGINA  */
 
 main {
     display: flex;
@@ -90,19 +110,12 @@ main {
     width: 750px;
     height: 45px;
     background: var(--secondary-gray-);
-    padding: 5px 20px 9px 20px;
+    padding: 5px 20px 5px 20px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-}
-
-.task-list a {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    text-decoration: none;
-    
 }
 
 .task-list p {
@@ -111,7 +124,7 @@ main {
     font-family: 'Open Sans' ;
     font-weight: bold;
     font-size: 24px;
-    
+    margin-right: auto;
 }
 
 .task-list button {
@@ -121,9 +134,19 @@ main {
     cursor: pointer;
 }
 
+.task-list input {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+
+/*  MODULO COM DESCRIÇÃO - LADO DIREITO  */
+
 .module {
     height: 512px;
     width: 380px;
+    padding-top: 5px;
     border-radius: 10px;
     background: var(--secondary-gray-);
     font-family: 'Open Sans';
@@ -136,14 +159,19 @@ main {
     height: 23px;
 }
 
-#edit {
+.module-buttons button {
+    cursor: pointer;
+    border: none;
+}
+
+.edit {
     height: 23px;
     width: 23px;
     border-radius: 50%;
     background-color: var(--primary-gray-);
 }
 
-#close {
+.close {
     height: 23px;
     width: 23px;
     border-radius: 50%;
@@ -204,6 +232,8 @@ main {
     
 }
 
+/*  BOTÕES DO MODULO   */
+
 .confirm-buttons {
     display: flex;
     justify-content: center;
@@ -211,8 +241,7 @@ main {
     padding: 5px;
     
 }
-
-.b {
+.buttons {
     width: 80px;
     height: 40px;
     border: none;
@@ -225,16 +254,19 @@ main {
     cursor: pointer;
 }
 
-#cancel {
+.cancel {
     background-color: var(--red-);
     margin-right: 50px;
     
 }
 
-#confirm {
+.confirm {
     background-color: var(--green-);
 
 }
+
+
+/*  RODAPÉ  */
 
 footer div {
     height: 120px;
@@ -248,7 +280,17 @@ footer div {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    border: none;
     background-color: var(--primary-gray-);
     cursor: pointer;
 }
 
+
+.adicionar i {
+    font-size: 30px;
+}
+
+.opacity0 {
+    opacity: 0;
+    pointer-events: none;
+}

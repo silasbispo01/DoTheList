@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/modal.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
     <img src="./assets/img/GRAMPO.svg" alt="" class="grampo">
@@ -14,12 +15,21 @@
         <div class="container">
             <nav>
                 <a href="#" class="toDoList">To Do List</a>
-                <a href="" class="avatar"></a>
+                <div class="nav-buttons">
+                    <button class="darkmode">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon hidden"></i>
+                    </button>
+                    <button class="avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                </div>
             </nav>
             <main>
                 <section class="tasks">
                     <ul class="task-list" data-task-list>
                         <li>
+                            <input type="checkbox">
                             <p>Ir à academia</p>
                             <button class="button-remove"><img src="./assets/img/buttonX.svg" alt="botão remover"></button>
                         </li>
@@ -28,8 +38,12 @@
                 <div data-modulos>
                     <div class="module" data-module>
                         <div class="module-buttons">
-                            <a href="" id="edit"></a>
-                            <a href="" id="close"></a>
+                            <button class="edit">
+                                <i class="fas fa-pen"></i>
+                            </button>
+                            <button class="close">
+                                <i class="fas fa-times"></i>
+                            </button>
                         </div>
                         <div class="module-task-name">
                             <p data-task-name>Ir a academia</p>
@@ -40,8 +54,8 @@
                                 <textarea name="" id="description" cols="30" rows="10" data-task-description></textarea>
                             </div>
                             <div class="confirm-buttons">
-                                <button id="cancel" class="b">cancelar</button>
-                                <button id="confirm" class="b">confirmar</button>
+                                <button class="buttons cancel" data-module-cancel-button>cancelar</button>
+                                <button class="buttons confirm" data-module-confirm-button>confirmar</button>
                             </div>
                         </div>
                     </div>
@@ -49,8 +63,9 @@
             </main>
             <footer>
                 <div>
-                    <div class="adicionar" data-button-add>
-                    </div>
+                    <button class="adicionar" data-button-add>
+                        <i class="fas fa-plus"></i>
+                    </button>
                 </div>
             </footer>
         </div>
