@@ -84,8 +84,10 @@ function addTasks () {
             const addButton = document.createElement('button');
             addLi.appendChild(addButton);
             addButton.classList.add('remove-button');
-            addButton.setAttribute('onclick', 'eraseTask(this.parentNode)');
+            addButton.setAttribute('onclick', 'openConfirmModal(this.parentNode)');
+
             
+
             const addImg = document.createElement('img');
             addButton.appendChild(addImg);
             addImg.src = "./assets/img/buttonX.svg";
@@ -113,6 +115,22 @@ function addTasks () {
 
     
 //fim da função// 
+}
+
+const confirmModal = document.querySelector('[data-modal-confirmacao-container]');
+const cancelExclusionButton = document.querySelector('[data-modal-cancel-button]')
+cancelExclusionButton.addEventListener('click', () => {
+    confirmModal.classList.add('hidden');
+    confirmExclusionButton.removeEventListener('click');
+})
+const confirmExclusionButton = document.querySelector('[data-modal-confirm-button]');
+function openConfirmModal(element) {
+    confirmModal.classList.remove('hidden');
+    confirmExclusionButton.addEventListener('click', () =>{
+        eraseTask(element);
+        confirmModal.classList.add('hidden');
+        confirmExclusionButton.removeEventListener('click');
+    })
 }
 
 function addOldTasks(i) {
