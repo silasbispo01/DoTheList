@@ -25,7 +25,8 @@ if (JSON.parse(window.localStorage.getItem('tasks')) != null){
 }
 
 function modalOpenClose () {
-    
+
+    const prancheta = document.querySelector('[data-prancheta]');
     const modalExitButton = document.querySelector('.modal-button-exit')
     const modalAddButton = document.querySelector('[data-button-add]')
     const modalContainer = document.querySelector('[data-modal-container]')
@@ -37,10 +38,12 @@ function modalOpenClose () {
     
     function modalOpen() {
         modalContainer.classList.remove('hidden')
+        prancheta.classList.add('blur')
     
     }
     function modalExit() {
         modalContainer.classList.add('hidden');
+        prancheta.classList.remove('blur')
     }
 };
 
@@ -216,7 +219,30 @@ function darkmode(){
 
 };
 
-darkmode();
+
+function setAvatar () {
+    const prancheta = document.querySelector('[data-prancheta]');
+    const avatarButton = document.querySelector('[data-avatar]');
+    const closeModalButton = document.querySelector('.avatar-button')
+    const avatarModal = document.querySelector('[data-avatar-container]');
+
+    closeModalButton.addEventListener('click', closeAvatarModal)
+    avatarButton.addEventListener('click', openAvatarModal)
+
+    function openAvatarModal () {
+        avatarModal.classList.remove('hidden')
+        prancheta.classList.add('blur')
+    }
+
+    function closeAvatarModal () {
+        avatarModal.classList.add('hidden')
+        prancheta.classList.remove('blur')
+    }
+};
+
 modalOpenClose();
 addTasks();
 editModuleInfo();
+darkmode();
+setAvatar();
+
