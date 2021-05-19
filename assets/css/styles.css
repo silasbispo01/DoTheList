@@ -3,6 +3,10 @@
 
 /*  GLOBAL */
 
+*:focus {
+    outline: none;
+}
+
 :root {
     --background-color- : #E5E5E5;
     --white- : #FFFFFF; 
