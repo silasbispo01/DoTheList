@@ -44,22 +44,7 @@ function modalOpenClose () {
     }
 };
 
-function editModuleInfo () {
-    const module = document.querySelector('[data-module]');
-    const cancelButton = document.querySelector('[data-module-cancel-button]');
-    const confirmButton = document.querySelector('[data-module-confirm-button]');
-    const taskName = document.querySelector('[data-task-name]');
-    const taskDescription = document.querySelector('[data-task-description]');
-    let task;
 
-    confirmButton.addEventListener('click', () => {
-        task = tasks.find(x => x.id == module.id);
-        if (taskDescription.value != task.description) {
-            task.description = taskDescription.value;
-        }
-        window.localStorage.setItem('tasks', JSON.stringify(tasks));
-    });
-}
 
 //função de adicionar tasks//
 function addTasks () {
@@ -189,7 +174,6 @@ function erase (element) {
     element.remove();
 }
 
-
 function darkmode(){
     const darkmodeButton = document.querySelector('.darkmode-button');
     const body = document.querySelector('[data-darkmode]');
@@ -219,4 +203,4 @@ function darkmode(){
 darkmode();
 modalOpenClose();
 addTasks();
-editModuleInfo();
+

@@ -38,10 +38,10 @@
                 <div data-modulos>
                     <div class="module" data-module>
                         <div class="module-buttons">
-                            <button class="edit">
+                            <button class="edit" data-button-edit>
                                 <i class="fas fa-pen"></i>
                             </button>
-                            <button class="close">
+                            <button class="close" data-button-close-module>
                                 <i class="fas fa-times"></i>
                             </button>
                         </div>
@@ -51,11 +51,11 @@
                         <div class="module-description">
                             <div class="description-form">
                                 <label for="description">Descrição</label>
-                                <textarea name="" id="description" cols="30" rows="10" data-task-description></textarea>
+                                <textarea name="" id="description" cols="30" rows="10" data-task-description readonly></textarea>
                             </div>
                             <div class="confirm-buttons">
-                                <button class="buttons cancel" data-module-cancel-button>cancelar</button>
-                                <button class="buttons confirm" data-module-confirm-button>confirmar</button>
+                                <button class="buttons cancel opacity0" data-module-cancel-button>cancelar</button>
+                                <button class="buttons confirm opacity0" data-module-confirm-button>confirmar</button>
                             </div>
                         </div>
                     </div>
@@ -98,4 +98,5 @@
 </body>
 
 <script src="assets/js/index.js"></script>
+<script src="assets/js/module.js"></script>
 </html>
