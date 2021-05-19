@@ -122,22 +122,7 @@ function addTasks () {
 //fim da função// 
 }
 
-const confirmModal = document.querySelector('[data-modal-confirmacao-container]');
-const cancelExclusionButton = document.querySelector('[data-modal-cancel-button]')
-cancelExclusionButton.addEventListener('click', () => {
-    confirmModal.classList.add('hidden');
-    confirmExclusionButton.removeEventListener('click');
-})
-const confirmExclusionButton = document.querySelector('[data-modal-confirm-button]');
-function openConfirmModal(element) {
-    confirmModal.classList.remove('hidden');
-    confirmExclusionButton.addEventListener('click', () =>{
-        eraseTask(element);
-        confirmModal.classList.add('hidden');
-        confirmExclusionButton.removeEventListener('click');
-    })
-}
-
+//função de adicionar tasks da memoria ao abrir a página//
 function addOldTasks(i) {
     const taskListElement = document.querySelector('[data-task-list]')
 
@@ -176,6 +161,31 @@ function addOldTasks(i) {
         taskDescription.value = thisTask.description;
 
     }, true)
+};
+
+//função de abrir o modal de exclusão//
+function openConfirmModal(element) {
+    const confirmModal = document.querySelector('[data-modal-confirmacao-container]');
+    const confirmExclusionButton = document.querySelector('[data-modal-confirm-button]');
+
+    confirmModal.classList.remove('hidden');
+    confirmExclusionButton.addEventListener('click', () =>{
+        eraseTask(element);
+        confirmModal.classList.add('hidden');
+        confirmExclusionButton.removeEventListener('click');
+    })
+}
+
+//função de confirmar exclusão de tasks//
+function confirmExclusion () {
+    const confirmModal = document.querySelector('[data-modal-confirmacao-container]');
+    const cancelExclusionButton = document.querySelector('[data-modal-cancel-button]')
+    const confirmExclusionButton = document.querySelector('[data-modal-confirm-button]');
+
+    cancelExclusionButton.addEventListener('click', () => {
+        confirmModal.classList.add('hidden');
+        confirmExclusionButton.removeEventListener('click');
+    })
 }
 
 function eraseTask(element) {
@@ -189,13 +199,14 @@ function eraseTask(element) {
     erase(element);
     tasks.splice(tasks.indexOf(tasks.find(x => x.id == module.id)), 1)
     window.localStorage.setItem('tasks', JSON.stringify(tasks));
-}
+};
 
 function erase (element) {
     element.remove();
-}
+};
 
-function darkmode(){
+//função de darkmode//
+function setDarkmode(){
     const darkmodeButton = document.querySelector('.darkmode-button');
     const body = document.querySelector('[data-darkmode]');
     const lua = document.querySelector('[data-lua]');
@@ -221,6 +232,7 @@ function darkmode(){
 
 };
 
+//função de setar avatar//
 function setAvatar () {
     const prancheta = document.querySelector('[data-prancheta]');
     const avatarButton = document.querySelector('[data-avatar]');
@@ -241,8 +253,9 @@ function setAvatar () {
     }
 };
 
-setAvatar();
-darkmode();
-modalOpenClose();
 addTasks();
+modalOpenClose();
+confirmExclusion();
+setAvatar();
+setDarkmode();
 
