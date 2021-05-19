@@ -26,6 +26,7 @@ if (JSON.parse(window.localStorage.getItem('tasks')) != null){
 
 function modalOpenClose () {
     
+    const prancheta = document.querySelector('[data-prancheta]');
     const modalExitButton = document.querySelector('.modal-button-exit')
     const modalAddButton = document.querySelector('[data-button-add]')
     const modalContainer = document.querySelector('[data-modal-container]')
@@ -37,15 +38,18 @@ function modalOpenClose () {
     
     function modalOpen() {
         modalContainer.classList.remove('hidden')
+        prancheta.classList.add('blur')
     
     }
     function modalExit() {
         modalContainer.classList.add('hidden');
+        prancheta.classList.remove('blur')
     }
 };
 
 //função de adicionar tasks//
 function addTasks () {
+    const prancheta = document.querySelector('[data-prancheta]');
     const addTaskButton = document.querySelector('[data-addTaskButton]');
     addTaskButton.addEventListener('click', setTask);
     
@@ -62,6 +66,7 @@ function addTasks () {
             nameTask.value = '';
             descriptionTask.value = '';
             modalContainer.classList.add('hidden');
+            prancheta.classList.remove('blur')
         }
 
         // verificar o campo vazio + adicionar li{p, button{img}}// 
@@ -198,6 +203,27 @@ function darkmode(){
 
 };
 
+function setAvatar () {
+    const prancheta = document.querySelector('[data-prancheta]');
+    const avatarButton = document.querySelector('[data-avatar]');
+    const closeModalButton = document.querySelector('.avatar-button')
+    const avatarModal = document.querySelector('[data-avatar-container]');
+
+    closeModalButton.addEventListener('click', closeAvatarModal)
+    avatarButton.addEventListener('click', openAvatarModal)
+
+    function openAvatarModal () {
+        avatarModal.classList.remove('hidden')
+        prancheta.classList.add('blur')
+    }
+
+    function closeAvatarModal () {
+        avatarModal.classList.add('hidden')
+        prancheta.classList.remove('blur')
+    }
+};
+
+setAvatar();
 darkmode();
 modalOpenClose();
 addTasks();
