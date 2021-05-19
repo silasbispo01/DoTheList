@@ -191,7 +191,29 @@ function erase (element) {
 
 
 function darkmode(){
+    const darkmodeButton = document.querySelector('.darkmode-button');
+    const body = document.querySelector('[data-darkmode]');
+    const lua = document.querySelector('[data-lua]');
+    const sol = document.querySelector('[data-sol]');
+
+    let on = false;
+
+    darkmodeButton.addEventListener('click', setDarkmode);
     
+    function setDarkmode () {
+        if (on == false) {
+            body.classList.add('darkmode');
+            lua.classList.remove('hidden')
+            sol.classList.add('hidden')
+            on = true;
+        } else {
+            body.classList.remove('darkmode');
+            lua.classList.add('hidden')
+            sol.classList.remove('hidden')
+            on = false;
+        }
+    }
+
 };
 
 darkmode();

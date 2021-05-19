@@ -8,6 +8,18 @@
     --green- : #69C759;
 }
 
+:root .darkmode {
+    --background-color- : #484747;
+    --white- : #000000; 
+    --font-color- : #FFF;
+    --primary-gray- : #444444;
+    --secondary-gray- : #737171;
+    --primary-brown- : #7E5E53;
+    --red- : #FA4F4F;
+    --green- : #69C759;
+    --background-texture- : url(/assets/img/background-darkmode.svg);
+}
+
 /*      BACKGROUND DO MODAL         */
 
 .modal-container {
@@ -46,6 +58,7 @@
     height: 40px;
     width: 40px;
     border-radius: 50%;
+    background: none;
     cursor: pointer;
 }
 
@@ -54,6 +67,7 @@
     font-size: 20px;
     font-family: "Ranga";
     margin: 5px;
+    color: var(--font-color-);
 }
 
 .modal-form {
@@ -65,6 +79,7 @@
 .modal-form label {
     margin-bottom: 5px;
     font-size: 24px;
+    color: var(--font-color-);
 }
 
 
@@ -94,7 +109,7 @@
     height: 40px;
     border: none;
     border-radius: 10px;
-    color: var(--white-);
+    color: var(--font-color-);
     padding: 5px;
     text-align: center;
     font-family: 'Open Sans';
