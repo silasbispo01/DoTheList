@@ -67,7 +67,8 @@ function addTasks () {
             
             const addButton = document.createElement('button');
             addLi.appendChild(addButton);
-            addButton.classList.add('remove-button')
+            addButton.classList.add('remove-button');
+            addButton.setAttribute('onclick', 'eraseTask(this.parentNode)');
             
             const addImg = document.createElement('img');
             addButton.appendChild(addImg);
@@ -79,13 +80,14 @@ function addTasks () {
             addLi.id = thisTask.id;
             addLi.addEventListener('click', () => {
                 const module = document.querySelector('[data-module]');
-                module.classList.remove('hidden');
+                module.id = thisTask.id;
+                module.classList.remove('opacity0');
                 let taskName = document.querySelector('[data-task-name]');
                 taskName.textContent = thisTask.title;
                 let taskDescription = document.querySelector('[data-task-description]');
-                taskDescription.textContent = thisTask.description;
+                taskDescription.value = thisTask.description;
 
-            })
+            }, true)
             tasks.push(thisTask);
             modalExit();
 
@@ -96,6 +98,20 @@ function addTasks () {
 //fim da função// 
 }
 
+function eraseTask(element) {
+    const module = document.querySelector('[data-module]');
+    module.classList.add('opacity0');
+    let taskName = document.querySelector('[data-task-name]');
+    taskName.textContent = '';
+    let taskDescription = document.querySelector('[data-task-description]');
+    taskDescription.textContent = '';
+
+    erase(element);
+}
+
+function erase (element) {
+    element.remove();
+}
 
 modalOpenClose();
 addTasks();
