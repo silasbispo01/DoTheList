@@ -25,7 +25,7 @@ if (JSON.parse(window.localStorage.getItem('tasks')) != null){
 }
 
 function modalOpenClose () {
-    
+
     const prancheta = document.querySelector('[data-prancheta]');
     const modalExitButton = document.querySelector('.modal-button-exit')
     const modalAddButton = document.querySelector('[data-button-add]')
@@ -47,9 +47,25 @@ function modalOpenClose () {
     }
 };
 
+function editModuleInfo () {
+    const module = document.querySelector('[data-module]');
+    const cancelButton = document.querySelector('[data-module-cancel-button]');
+    const confirmButton = document.querySelector('[data-module-confirm-button]');
+    const taskName = document.querySelector('[data-task-name]');
+    const taskDescription = document.querySelector('[data-task-description]');
+    let task;
+
+    confirmButton.addEventListener('click', () => {
+        task = tasks.find(x => x.id == module.id);
+        if (taskDescription.value != task.description) {
+            task.description = taskDescription.value;
+        }
+        window.localStorage.setItem('tasks', JSON.stringify(tasks));
+    });
+}
+
 //função de adicionar tasks//
 function addTasks () {
-    const prancheta = document.querySelector('[data-prancheta]');
     const addTaskButton = document.querySelector('[data-addTaskButton]');
     addTaskButton.addEventListener('click', setTask);
     
@@ -66,7 +82,6 @@ function addTasks () {
             nameTask.value = '';
             descriptionTask.value = '';
             modalContainer.classList.add('hidden');
-            prancheta.classList.remove('blur')
         }
 
         // verificar o campo vazio + adicionar li{p, button{img}}// 
@@ -89,10 +104,8 @@ function addTasks () {
             const addButton = document.createElement('button');
             addLi.appendChild(addButton);
             addButton.classList.add('remove-button');
-            addButton.setAttribute('onclick', 'openConfirmModal(this.parentNode)');
-
+            addButton.setAttribute('onclick', 'eraseTask(this.parentNode)');
             
-
             const addImg = document.createElement('img');
             addButton.appendChild(addImg);
             addImg.src = "./assets/img/buttonX.svg";
@@ -120,22 +133,6 @@ function addTasks () {
 
     
 //fim da função// 
-}
-
-const confirmModal = document.querySelector('[data-modal-confirmacao-container]');
-const cancelExclusionButton = document.querySelector('[data-modal-cancel-button]')
-cancelExclusionButton.addEventListener('click', () => {
-    confirmModal.classList.add('hidden');
-    confirmExclusionButton.removeEventListener('click');
-})
-const confirmExclusionButton = document.querySelector('[data-modal-confirm-button]');
-function openConfirmModal(element) {
-    confirmModal.classList.remove('hidden');
-    confirmExclusionButton.addEventListener('click', () =>{
-        eraseTask(element);
-        confirmModal.classList.add('hidden');
-        confirmExclusionButton.removeEventListener('click');
-    })
 }
 
 function addOldTasks(i) {
@@ -195,6 +192,7 @@ function erase (element) {
     element.remove();
 }
 
+
 function darkmode(){
     const darkmodeButton = document.querySelector('.darkmode-button');
     const body = document.querySelector('[data-darkmode]');
@@ -221,6 +219,7 @@ function darkmode(){
 
 };
 
+
 function setAvatar () {
     const prancheta = document.querySelector('[data-prancheta]');
     const avatarButton = document.querySelector('[data-avatar]');
@@ -241,8 +240,9 @@ function setAvatar () {
     }
 };
 
-setAvatar();
-darkmode();
 modalOpenClose();
 addTasks();
+editModuleInfo();
+darkmode();
+setAvatar();
 

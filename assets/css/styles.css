@@ -44,6 +44,10 @@ body {
     width: 100vw;
 }
 
+.blur {
+    filter: blur(4px);
+}
+
 i {
     transition: 500ms;
 }
