@@ -61,6 +61,10 @@ function addTasks () {
 
             const addLi = document.createElement('li');
             taskListElement.appendChild(addLi)
+
+            const addInput = document.createElement('input');
+            addLi.appendChild(addInput);
+            addInput.type = "checkbox"
             
             const addP = document.createElement('p');
             addLi.appendChild(addP);
