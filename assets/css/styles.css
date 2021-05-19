@@ -90,19 +90,12 @@ main {
     width: 750px;
     height: 45px;
     background: var(--secondary-gray-);
-    padding: 5px 20px 9px 20px;
+    padding: 5px 20px 5px 20px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-}
-
-.task-list a {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    text-decoration: none;
-    
 }
 
 .task-list p {
@@ -111,7 +104,7 @@ main {
     font-family: 'Open Sans' ;
     font-weight: bold;
     font-size: 24px;
-    
+    margin-right: auto;
 }
 
 .task-list button {
@@ -119,6 +112,12 @@ main {
     background: 0;
     font-size: 20px;
     cursor: pointer;
+}
+
+.task-list input {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
 }
 
 .module {
