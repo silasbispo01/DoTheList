@@ -234,10 +234,13 @@ function setDarkmode(){
 
 //função de setar avatar//
 function setAvatar () {
-    const prancheta = document.querySelector('[data-prancheta]');
-    const avatarButton = document.querySelector('[data-avatar]');
-    const closeModalButton = document.querySelector('.avatar-button')
-    const avatarModal = document.querySelector('[data-avatar-container]');
+
+const prancheta = document.querySelector('[data-prancheta]');
+const avatarButton = document.querySelector('[data-avatar]');
+const closeModalButton = document.querySelector('.avatar-button')
+const avatarModal = document.querySelector('[data-avatar-container]');
+const avatarOld = document.querySelector('.fa-user-circle')
+let contador = 0;
 
     closeModalButton.addEventListener('click', closeAvatarModal)
     avatarButton.addEventListener('click', openAvatarModal)
@@ -251,6 +254,36 @@ function setAvatar () {
         avatarModal.classList.add('hidden')
         prancheta.classList.remove('blur')
     }
+
+    
+    function setAvatarImg (src) {
+            const avatar = {};
+
+            if (contador === 0) {
+                const createImg = document.createElement('img');
+                createImg.setAttribute('src', src);
+                createImg.classList.add('avatar-selected')
+                avatarButton.appendChild(createImg);
+                avatarOld.remove();
+                closeAvatarModal();  
+                contador++; 
+                
+            } else {
+                
+                const avatarCriado = document.querySelector('.avatar-selected');
+                avatarCriado.setAttribute('src', src);
+                closeAvatarModal();
+            }
+    }
+    
+    document.addEventListener ('click', function(e){
+        const el = e.target;
+        if (el.classList.contains('avatarselect')) {
+            const src = el.getAttribute('src')
+            return setAvatarImg(src);
+        }
+    })
+    
 };
 
 addTasks();
